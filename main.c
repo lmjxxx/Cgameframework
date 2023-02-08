@@ -1,6 +1,6 @@
 #include <stdio.h>
 // #include <conio.h> //콘솔 입출력을 제공하는 헤더파일 비 표준 헤더 사용이 권장되지 않음. ws에서만 쓸 수 있음. _kbhit() _getch() 를 사용하는데 termios.h로 대체해서 사용
-#include <termios.h> //
+#include <termios.h> // terminal
 #include <time.h> // C언어 표준 라이브러리, 시간/날짜를 얻거나 조작
 
 int main(){
