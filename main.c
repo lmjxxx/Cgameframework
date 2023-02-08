@@ -1,14 +1,23 @@
-#include <stdio.h>
-// #include <conio.h> //콘솔 입출력을 제공하는 헤더파일 비 표준 헤더 사용이 권장되지 않음. ws에서만 쓸 수 있음. _kbhit() _getch() 를 사용하는데 termios.h로 대체해서 사용
-#include <termios.h> // terminal
+// #include <conio.h> //콘솔 입출력을 제공하는 헤더파일 비 표준 헤더 사용이 권장되지 않음. ws에서만 쓸 수 있음. _kbhit() _getch() 를 사용하는데 termios.h로 대체해서 사용 curses.h 도 가능 
 #include <time.h> // C언어 표준 라이브러리, 시간/날짜를 얻거나 조작
+#include "key.h" // kbhit();, getkey();
 
 int main(){
+    
+    int nKey;
     clock_t CurTime, OldTime; //clock_t: 틱(시간을 측정하는 기준 주기) 를 저장하는 형식
+    
     Init();
 
     while(1)
     {
+        nKey = getch();
+        if (nKey != -1){
+            printf("key = [%c]/0x%08x\n\r", nKey, nKey);
+            if(nKey == KEY_DOWN){
+                break;
+            }
+        }
         OldTime = clock(); // clock(); 프로그램이 시작될때 부터 지난 틱 수 반환 
         Update();
         Render();
@@ -24,7 +33,7 @@ int main(){
 }
 
 void Init(){ // 초기화
-
+    initscr();             // initialize curses
 }
 
 void Update(){ // 데이터 갱신
