@@ -56,4 +56,6 @@ void SetColor(int palet, unsigned short color, unsigned short background)
     }
     start_color();
     init_pair(palet, color, background);
+    
 }
+//
