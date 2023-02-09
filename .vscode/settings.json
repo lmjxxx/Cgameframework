@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "term.h": "c",
+        "ncurses.h": "c",
+        "stdio.h": "c",
+        "unistd.h": "c",
+        "framework.h": "c",
+        "initialset.h": "c"
+    }
+}
