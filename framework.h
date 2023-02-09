@@ -15,6 +15,8 @@
 #include <ncurses.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <stdarg.h>
+
 
 typedef struct Character
 {
@@ -31,8 +33,8 @@ void Render();   // 화면 출력
 void Update();   // 데이터 갱신
 void Release();  // 해제
 
-void PrintScreen(int x, int y, char *string);
-void SetColor(unsigned short color);
+void PrintScreen(int x, int y, char *string, ...);
+void SetColor(int palet, unsigned short color, unsigned short background);
 void moving(int x, int y);
 void drawing_box(int x, int y, unsigned short color);
 

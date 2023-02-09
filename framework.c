@@ -34,7 +34,26 @@ void Release()
     resetty();
 }
 
-void PrintScreen(int x, int y, char *string)
-{
+void PrintScreen(int x, int y, char *string, ...)
+{   
+    va_list ap;
+    va_start(ap, string);
+    
+    attrset(COLOR_PAIR(ap));
     mvprinttw(y, x, string);
+}
+
+/*
+palet번호 color, background 색을 지정해주면 palet에 색조합이 들어간다. 
+*/
+void SetColor(int palet, unsigned short color, unsigned short background)
+{
+    if (has_color() == FALSE)
+    {
+        Release();
+        printf("Your terminal does not support color \n");
+        exit(1);
+    }
+    start_color();
+    init_pair(palet, color, background);
 }
