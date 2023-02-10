@@ -15,7 +15,10 @@ keypad: 방향키, f1 f2 등 특수키를 사용할 수 있도록 초기화 하�
 void Init()
 {
     initscr(); // curse terminal initializing
-    keypad(stdscr, TRUE);
+    keypad(stdscr, TRUE);    
+    noecho(); // 모든 키보드 입력을 숨김 
+    curs_set(FALSE);
+    
 }
 
 void Render()
@@ -58,4 +61,4 @@ void SetColor(int palet, unsigned short color, unsigned short background)
     init_pair(palet, color, background);
     
 }
-//
+

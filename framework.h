@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <stdarg.h>
-
+#include <time.h> 
 
 typedef struct Character
 {
@@ -26,6 +26,8 @@ typedef struct Character
     short x;
     bool collider;
 } character;
+
+static char * pages[];
 
 void Init();     // 초기화
 void termInit(); // 터미널 초기화
